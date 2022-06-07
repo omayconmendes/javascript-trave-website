@@ -24,7 +24,7 @@ body {
     color: white;
     margin: auto;
     padding: 2rem 0;
-
+    z-index: 2;
 }
 
 .line1,
@@ -98,7 +98,7 @@ body {
 }
 
 .hike-span {
-    color: rgb(167,110,24);
+    color: rgb(24, 167, 67);
 }
 
 .fashion-span {
@@ -213,13 +213,17 @@ body {
 }
 
 .t-swipe2 {
-    background: rgb(167,110,24);
+    background: rgb(24, 167, 67);
 }
 
 .t-swipe3 {
-    background: rgb(255, 139, 93);
+    background: rgb(255,139,93);
 }
 
 .scrollmagic-pin-spacer {
     position: static !important;
+}
+
+body.hide {
+    overflow: hidden;
 }

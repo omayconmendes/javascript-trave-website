@@ -66,7 +66,8 @@ function animateSlides() {
     
 }
 
-let mouse = document.querySelector('.cursor');
+const mouse = document.querySelector('.cursor');
+const burger = document.querySelector('.burger');
 
 function cursor(e) {
     mouse.style.top = e.pageY + 'px';
@@ -88,12 +89,33 @@ function activeCursor(e) {
         mouse.innerText = 'Tap';
     } else {
         mouse.classList.remove('explore-active');
-        gsap.to('.title-swipe', 1, { y: '100%' });
         mouse.innerText = '';
+        gsap.to('.title-swipe', 1, { y: '100%' });
     }
 
 }
 
+function navToggle(e) {
+    if(!e.target.classList.contains('active')){
+        e.target.classList.add('active');
+        gsap.to('.line1', { duration: 0.5, rotate: '45', y: 5, backgroundColor:'black' });
+        gsap.to('.line2', { duration: 0.5, rotate: '-45', y: -5, backgroundColor:'black' });
+        gsap.to('#logo', { duration: 1, color: 'black'});
+        gsap.to('.nav-bar', { duration: 1, clipPath: 'circle(2500px at 100% -10%)'});
+        document.body.classList.add('hide');
+    } else {
+        e.target.classList.add('active');
+        gsap.to('.line1', { duration: 0.5, rotate: '0', y: 0, backgroundColor:'white' });
+        gsap.to('.line2', { duration: 0.5, rotate: '0', y: 0, backgroundColor:'white' });
+        gsap.to('#logo', { duration: 1, color: 'white'});
+        gsap.to('.nav-bar', { duration: 1, clipPath: 'circle(50px at 100% -10%)'});
+        document.body.classList.remove('hide');
+    }
+
+}
+
+// Events
+burger.addEventListener('click', navToggle);
 window.addEventListener('mousemove', cursor);
 window.addEventListener('mouseover', activeCursor);
 
