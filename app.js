@@ -98,20 +98,19 @@ function activeCursor(e) {
 function navToggle(e) {
     if(!e.target.classList.contains('active')){
         e.target.classList.add('active');
-        gsap.to('.line1', { duration: 0.5, rotate: '45', y: 5, backgroundColor:'black' });
-        gsap.to('.line2', { duration: 0.5, rotate: '-45', y: -5, backgroundColor:'black' });
-        gsap.to('#logo', { duration: 1, color: 'black'});
-        gsap.to('.nav-bar', { duration: 1, clipPath: 'circle(2500px at 100% -10%)'});
+        gsap.to('.line1',{ duration: 0.5, rotate: '45', y: 5, backgroundColor: 'black' });
+        gsap.to('.line2',{ duration: 0.5, rotate: '-45', y: -5, backgroundColor: 'black'});
+        gsap.to('#logo', { duration: 0.5, color: 'black' });
+        gsap.to('.nav-bar', { duration: 1, clipPath: "circle(2500px at 100% -10%)"});
         document.body.classList.add('hide');
     } else {
-        e.target.classList.add('active');
+        e.target.classList.remove('active');
         gsap.to('.line1', { duration: 0.5, rotate: '0', y: 0, backgroundColor:'white' });
         gsap.to('.line2', { duration: 0.5, rotate: '0', y: 0, backgroundColor:'white' });
         gsap.to('#logo', { duration: 1, color: 'white'});
         gsap.to('.nav-bar', { duration: 1, clipPath: 'circle(50px at 100% -10%)'});
         document.body.classList.remove('hide');
     }
-
 }
 
 // Events
